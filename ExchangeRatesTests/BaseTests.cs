@@ -18,13 +18,14 @@ namespace ExchangeRatesTests
         [InlineData(50)]
         [InlineData(100)]
         [InlineData(500)]
-        public async Task Test10Dates(int numberOfDates)
+        [InlineData(1000)]
+        public async Task TestAponDiferrentDatesCount(int numberOfDates)
         {
             var client = _application.CreateClient();
             
             var response = await client.GetAsync(BuildTestUrl(numberOfDates));
 
-            response.EnsureSuccessStatusCode();
+            Assert.NotNull(response);
         }
 
 
