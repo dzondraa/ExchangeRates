@@ -15,7 +15,6 @@ namespace ExchangeRatesTests
 
 
         [Theory]
-        [InlineData(10)]
         [InlineData(50)]
         [InlineData(100)]
         [InlineData(500)]

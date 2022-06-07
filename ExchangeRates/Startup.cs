@@ -1,4 +1,5 @@
-﻿using ExchangeRates.Proxies;
+﻿using ExchangeRates.Filters;
+using ExchangeRates.Proxies;
 using ExchangeRates.Services;
 using Microsoft.AspNetCore.Builder;
 
@@ -24,7 +25,10 @@ namespace ExchangeRates
             builder.Services.AddScoped<IExchangeRateHttpProxy, ExchangeRateHttpProxy>();
             builder.Services.AddScoped<IHistoryService, HistoryService>();
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<GlobalExceptionFilter>();
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -45,6 +49,7 @@ namespace ExchangeRates
             app.UseAuthorization();
 
             app.MapControllers();
+
         }
     }
 }
