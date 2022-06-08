@@ -21,3 +21,6 @@ For ref: https://github.com/dzondraa/ExchangeRates/blob/master/ExchangeRatesTest
 - Used IHttpClientFactory for safe handle and better resource management
 - Preventing _Socket exhaustion problem_
 - Collect responses concurently in thread-safe collection (example: ConcurentBag<T>)
+  
+## Dependencies
+- https://api.exchangerate.host (Exchange data source)
